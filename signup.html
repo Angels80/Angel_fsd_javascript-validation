@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="bootstrap.min.css"> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+<body background="images/water.jpg">
+    <form action="login.html" onsubmit="return validate();">
+        <!-- <div class="mymargin"></div> -->
+         <div class="col-lg-4" > </div>
+        <div class="col-lg-4 mymargin">
+            <h2 id="signup">Sign Up</h2>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+            <div class="ermsg">
+              <span id="error"></span>
+          </div>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputPassword4">User Name</label>
+            <input type="text" class="form-control" id="inputusername4" placeholder="userName">
+            <div class="ermsg">
+              <span id="error1"></span>
+          </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          <div class="ermsg">
+            <span id="error2"></span>
+        </div>
+        </div>
+        <div class="form-group">
+          <label for="phonenumber">Mobile Number</label>
+          <input type="text" class="form-control" id="num" placeholder="XX-XXXX-XXXX">
+          <div class="ermsg">
+            <span id="err"></span>
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+            <div class="ermsg">
+              <span id="err1"></span>
+          </div>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <input type="text" class="form-control" id="inputState">
+            <div class="ermsg">
+              <span id="err2"></span>
+          </div>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+            <div class="ermsg">
+              <span id="err3"></span>
+          </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="gridCheck">
+            <label class="form-check-label" for="gridCheck">
+              Check me out
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+        </div>
+         <div class="col-lg-2"></div> 
+    <!-- </div> -->
+      </form>
+      <script>
+        let regexp= /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z{2,3}])(.[a-z{2,3}])?$/
+        let regexpnum= /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
+        let email=document.getElementById("inputEmail4");
+        let error=document.getElementById("error");
+        let user=document.getElementById("inputusername4");
+        let addr=document.getElementById("inputAddress");
+        let num=document.getElementById("num");
+        let error1=document.getElementById("error1");
+        let error2=document.getElementById("error2");
+        let err=document.getElementById("err");
+        let city=document.getElementById("inputCity");
+        let err1=document.getElementById("err1");
+        let state=document.getElementById("inputState");
+        let err2=document.getElementById("err2");
+        let zip=document.getElementById("inputZip");
+        let err3=document.getElementById("err3");
+       
+        
+        function validate(){
+         
+        if(email.value==""){
+            
+            document.getElementById("error").innerHTML="*Please provide email..";
+            email.style.border="1px solid red";
+            return false;
+        }
+
+        if(regexp.test(email.value)){
+          document.getElementById("error").innerHTML="valid ..";
+           email.style.border="1px solid green";
+           error.style.color="green";
+           
+       }else{
+           document.getElementById("error").innerHTML="*invalid email..";
+           email.style.border="1px solid red";
+           return false;
+       }
+
+        if(user.value==""){
+            
+          document.getElementById("error1").innerHTML="*Please provide your name..";
+           user.style.border="1px solid red";
+          return false;
+        }
+
+        if(addr.value==""){
+            
+            document.getElementById("error2").innerHTML="*Please provide your address..";
+            addr.style.border="1px solid red";
+            return false;
+        }
+        if(num.value==""){
+           
+            document.getElementById("err").innerHTML="Please provide your number..";
+            num.style.border="1px solid red";
+            return false;
+        }
+        if(city.value==""){
+           
+           document.getElementById("err1").innerHTML="Please provide your city..";
+           city.style.border="1px solid red";
+           return false;
+       }
+       if(state.value==""){
+           
+           document.getElementById("err2").innerHTML=" provide your state..";
+           state.style.border="1px solid red";
+           return false;
+       }
+       if(zip.value==""){
+           
+           document.getElementById("err3").innerHTML=" provide your zip..";
+           zip.style.border="1px solid red";
+           return false;
+       }
+
+        if(regexpnum.test(num.value)){
+          num.style.border="1px solid green";
+          return true;
+        }else{
+
+          document.getElementById("err").innerHTML="*invalid number.";
+          email.style.border="1px solid red";
+             return false;
+  }
+      }
+      </script>
+      
+</body>
+</html>
